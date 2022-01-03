@@ -9,14 +9,14 @@ public class Greed{
     for(int i = 0; i < 6; i++) {
       if(i == 0) {
         if(count[i] >= 3) {
-          score += (1000 * Math.pow((count[i] - 2), 2);
+          score += (1000 + (count[i] - 3) * 100);
         } else {
           score += (count[i] * 100);
         }
        }
        else if(i == 4) {
          if(count[i] >= 3) {
-          score += (500 * Math.pow((count[i] - 2), 2);
+          score += (500 + (count[i] - 3) * 50);
         } else {
           score += (count[i] * 50);
         }
