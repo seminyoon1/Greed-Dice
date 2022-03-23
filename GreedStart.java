@@ -17,6 +17,9 @@ public class GreedStart extends JFrame {
 
     public GreedStart() {
 
+        int[] dices = (GreedRandomizer.getDices());
+        int score = GreedCalculator.greedy(dices); 
+
         newButton = new JButton("Roll");
 	    newButton.setBounds(340,460,100,50);
 
@@ -29,13 +32,9 @@ public class GreedStart extends JFrame {
 
         ClickListener click= new ClickListener();
         newButton.addActionListener(click);
-
-        int[] dices = (GreedRandomizer.getDices());
-        int score = GreedCalculator.greedy(dices); 
-        Dimension size1 = textScore.getPreferredSize();
                 
         textScore.setText("Your Greed Dice score is: " + score);
-        textScore.setBounds(300, 150, size1.width, size1.height);
+        textScore.setBounds(300, 150, 300, 100);
         frame.getContentPane().add(textScore);
     }
 
@@ -45,13 +44,12 @@ public class GreedStart extends JFrame {
         // I thought I could make something cool with Java Swing. 
         public void actionPerformed(ActionEvent e) {
             int[] dices = (GreedRandomizer.getDices());
+            int score = GreedCalculator.greedy(dices);
 
             if (e.getSource() == newButton) {
 
-                int score = GreedCalculator.greedy(dices);
-                Dimension size1 = textScore.getPreferredSize();
                 textScore.setText("Your Greed Dice score is: " + score);
-                textScore.setBounds(300, 150, size1.width, size1.height);
+                textScore.setBounds(300, 150, 300, 100);
                 frame.getContentPane().add(textScore);
 
                 for(int i = 0; i < dices.length; i++) {

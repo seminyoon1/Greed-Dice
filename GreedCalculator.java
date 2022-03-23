@@ -1,30 +1,8 @@
 public class GreedCalculator {
-    public static int greedy(int[] dice){
-        int score = 0;
-        int[] count = {0,0,0,0,0,0};
-        for(int i = 0; i < 6; i++) {
-          int place = dice[i] - 1;
-          count[place]++;
-        }
-        for(int i = 0; i < 6; i++) {
-          if(i == 0) {
-            if(count[i] >= 3) {
-              score += (1000 * Math.pow((count[i] - 2), 2));
-            } else {
-              score += (count[i] * 100);
-            }
-           }
-           else if(i == 4) {
-             if(count[i] >= 3) {
-              score += (500 * Math.pow((count[i] - 2), 2));
-            } else {
-              score += (count[i] * 50);
-            }
-           }
-           else if(count[i] >= 3){
-             score += (i+1) * 100;
-           }
-        }
-        return score;
-      }
+  //Codewars Greed Dice 6kyu problem
+  public static int greedy(int[] dice) {
+    int n[] = new int[7];
+    for (int d : dice) n[d]++;
+    return n[1]/3*1000 + n[1]%3*100 + n[2]/3*200 + n[3]/3*300 + n[4]/3*400 + n[5]/3*500 + n[5]%3*50 + n[6]/3*600;
+  }
 }
