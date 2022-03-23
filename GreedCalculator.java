@@ -2,7 +2,7 @@ public class GreedCalculator {
     public static int greedy(int[] dice){
         int score = 0;
         int[] count = {0,0,0,0,0,0};
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 6; i++) {
           int place = dice[i] - 1;
           count[place]++;
         }
